@@ -5,9 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
+
 import com.tos.retrofitokhttpcaching.R;
-import com.tos.retrofitokhttpcaching.webapi.photo.PhotoData;
 import com.tos.retrofitokhttpcaching.webapi.post.PostData;
 
 import java.util.List;
@@ -17,13 +16,13 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> {
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     private Context context;
-    private List<PhotoData> items;
+    private List<PostData> items;
 
 
-    public PhotoAdapter(Context context, List<PhotoData> items) {
+    public PostAdapter(Context context, List<PostData> items) {
         this.context = context;
         this.items = items;
     }
@@ -39,13 +38,14 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        PhotoData item = items.get(position);
+        PostData item = items.get(position);
 
-        holder.tvText.setText(String.format("Author: %s", item.getAuthor()));
-        Glide.with(context)
-                .load(item.getDownloadUrl())
-                .into(holder.ivImage);
-        holder.tvText.setTag(item);
+        holder.tvText.setText(item.getTitle());
+        holder.ivImage.setVisibility(View.GONE);
+       /* Glide.with(context)
+                .load(item.getUrl())
+                .into(holder.ivImage);*/
+        holder.ivImage.setTag(item);
     }
 
     @Override

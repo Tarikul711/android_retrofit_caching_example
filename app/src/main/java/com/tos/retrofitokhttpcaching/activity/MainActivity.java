@@ -1,4 +1,4 @@
-package com.tos.retrofitokhttpcaching;
+package com.tos.retrofitokhttpcaching.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,7 +14,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.tos.retrofitokhttpcaching.adapter.PhotoAdapter;
+import com.tos.retrofitokhttpcaching.R;
+import com.tos.retrofitokhttpcaching.adapter.PostAdapter;
 import com.tos.retrofitokhttpcaching.webapi.APIService;
 import com.tos.retrofitokhttpcaching.webapi.RootUrl;
 import com.tos.retrofitokhttpcaching.webapi.WebInterface;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         if (response.code() == 200) {
                             progressBar.setVisibility(View.GONE);
                             List<PostData> postData = response.body();
-                            PhotoAdapter adapter = new PhotoAdapter(context, postData);
+                            PostAdapter adapter = new PostAdapter(context, postData);
                             recyclerView.setLayoutManager(new LinearLayoutManager(context));
                             recyclerView.setAdapter(adapter);
                         } else {

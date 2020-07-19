@@ -1,6 +1,7 @@
 package com.tos.retrofitokhttpcaching.webapi;
 
 
+import com.tos.retrofitokhttpcaching.webapi.photo.PhotoData;
 import com.tos.retrofitokhttpcaching.webapi.post.PostData;
 
 import java.util.List;
@@ -19,4 +20,7 @@ public interface WebInterface {
 
     @GET(WebMethod.POST_DATA)
     Call<List<PostData>> getPostData();
+
+    @GET(WebMethod.PHOTO_DATA)
+    Call<List<PhotoData>> getPhotoData();
 }

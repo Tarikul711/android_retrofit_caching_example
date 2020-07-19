@@ -6,4 +6,5 @@ package com.tos.retrofitokhttpcaching.webapi;
 
 public class RootUrl {
     public static String BASE_URL = "https://jsonplaceholder.typicode.com/";
+    public static String BASE_URL_PHOTO = "https://picsum.photos/v2/";
 }
