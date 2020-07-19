@@ -29,6 +29,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
     private Context context;
     private List<PostData> items;
 
+
     public PhotoAdapter(Context context, List<PostData> items) {
         this.context = context;
         this.items = items;
