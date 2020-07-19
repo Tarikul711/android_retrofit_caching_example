@@ -49,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
                 .enqueue(new Callback<List<PostData>>() {
                     @Override
                     public void onResponse(@NotNull Call<List<PostData>> call, @NotNull Response<List<PostData>> response) {
+                        if (response.raw().networkResponse() != null) {
+                            Log.d(TAG, "onResponse: response is from NETWORK...");
+                        } else if (response.raw().cacheResponse() != null
+                                && response.raw().networkResponse() == null) {
+                            Log.d(TAG, "onResponse: response is from CACHE...");
+                        }
+
                         if (response.code() == 200) {
                             progressBar.setVisibility(View.GONE);
                             List<PostData> postData = response.body();
